@@ -112,12 +112,12 @@ def square_root(num):
     if num < 0:
         root = False
     else:
-        root**2 = num
+        root = num**(1/2)
     return root
 
 def quad(a, b, c):
-    x_1 = (-b + square_root(b**2 - 4*a*c))/(2*a)
-    x_2 = (-b - square_root(b**2 - 4*a*c))/(2*a)
+    x_1 = ((-b + square_root(b**2 - 4*a*c)) / (2*a))
+    x_2 = ((-b - square_root(b**2 - 4*a*c)) / (2*a))
 
     return [x_1, x_2]
 
@@ -128,15 +128,19 @@ while True:
     second = input("b: ")
     third = input("c: ")
 
-    try:
-        a_1 = float(first)
-        b_2 = float(second)
-        c_3 = float(third)
-    except:
-        print("Invalid entry.")
-        pass
+    if first == 'exit' or second == 'exit' or third == 'exit':
+        break
     else:
+
         try:
-            print(quad(square_root(a_1), square_root(b_2), square_root(c_3)))
+            a_1 = float(first)
+            b_2 = float(second)
+            c_3 = float(third)
         except:
             print("Invalid entry.")
+            pass
+        else:
+            try:
+                print(quad(a_1, b_2, c_3))
+            except:
+                print("Invalid entry.")

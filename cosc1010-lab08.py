@@ -1,12 +1,10 @@
-# Your Name Here
+# Reuben McGuire
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section:
+# 11/6/2024
+# Lab 08
+# Lab Section: 15
 # Sources, people worked with, help given to:
-# your
-# comments
-# here
+# 
 
 
 # Write a function that will properly check strings to see if they are an int or float, and convert them if so
@@ -14,6 +12,29 @@
 # Other wise return the converted int or float 
 # Floats should only have one decimal point in them 
 
+def convert(string):
+    if "." in string:
+        try:
+            num = float(string)
+        except:
+            converted = "Cannot be converted."
+        else:
+            converted = int(num)
+    else:
+        try:
+            num = int(string)
+        except:
+            converted = "Cannot be converted."
+        else:
+            converted = float(num)
+    return converted
+
+while True:
+    number = input("Enter an integer or a float:\nEnter 'q' to exit. ")
+    if number == "q":
+        break
+    else:
+        print(convert(number))
 
 print("*" * 75)
 
@@ -37,6 +58,44 @@ print("*" * 75)
 # Exit on the word exit
 # Remember all inputs are strings, but the function needs ints or floats
 # Call your function and print the resulting list
+
+def evaluate(m, b, l, h):
+    y_vals = []
+    if l > h:
+        y_vals = False
+    try:
+        for x in range(l,h+1):
+            y_vals.append(m*x+b)
+    except:
+        y_vals = False
+    return y_vals
+
+while True:
+    
+    slope_string = input("Slope: ")
+    intercept_string = input("y-intercept: ")
+    lower_string = input("Lower x-bound: ")
+    upper_string = input("Upper x-bound: ")
+    
+    if slope_string == 'exit' or intercept_string == 'exit' or lower_string == 'exit' or upper_string == 'exit':
+        break
+
+    try:
+        slope = float(slope_string)
+        intercept = float(intercept_string)
+        lower = int(lower_string)
+        upper = int(upper_string)
+    except:
+        print("Invalid equation entry.")
+        pass
+    else:
+        if evaluate(slope, intercept, lower, upper) == False:
+            print("Invalid equation entry.")
+        else:
+            try:
+                print(evaluate(slope, intercept, lower, upper))
+            except:
+                print("Invalid equation entry.")
 
 print("*" * 75)
 

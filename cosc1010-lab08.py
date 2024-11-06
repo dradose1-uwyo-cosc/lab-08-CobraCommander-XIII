@@ -107,3 +107,36 @@ print("*" * 75)
 # Create a loop like above to prompt the user for input for the three values
 # Create a second function that just does the square root operation 
     # If the number you are trying to take the square root of is negative, return null
+
+def square_root(num):
+    if num < 0:
+        root = False
+    else:
+        root**2 = num
+    return root
+
+def quad(a, b, c):
+    x_1 = (-b + square_root(b**2 - 4*a*c))/(2*a)
+    x_2 = (-b - square_root(b**2 - 4*a*c))/(2*a)
+
+    return [x_1, x_2]
+
+
+while True:
+    
+    first = input("a: ")
+    second = input("b: ")
+    third = input("c: ")
+
+    try:
+        a_1 = float(first)
+        b_2 = float(second)
+        c_3 = float(third)
+    except:
+        print("Invalid entry.")
+        pass
+    else:
+        try:
+            print(quad(square_root(a_1), square_root(b_2), square_root(c_3)))
+        except:
+            print("Invalid entry.")
